@@ -1,0 +1,57 @@
+.container {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.input {
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border-radius: 5px;
+  font-family: "Lucida Handwriting", cursive;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.button {
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 5px;
+  border: none;
+  font-family: "Lucida Handwriting", cursive;
+  background-color: #c12025;
+  color: snow;
+}
+
+.input,
+.button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.error {
+  color: #c12025;
+  margin-top: 2em;
+  font-size: small;
+  font-family: "Lucida Console", monospace;
+}
+
+.loader {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3498db;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
