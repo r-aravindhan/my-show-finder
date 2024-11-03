@@ -1,20 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Login from "./components/login/Login";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import store from "./redux/store";
+import { UserProvider } from "./context/UserContext";
+import Layout from "./components/Layout";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div>
-          <img src={logo} className="App-logo" alt="logo" />
-          <span>My Show Finder</span>
-        </div>
-        <br />
-        <div>Book it, love it, relive it!</div>
-      </header>
-      <br />
-      <Login />
+      <UserProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/my-show-finder" element={<Layout />} />
+            </Routes>
+          </BrowserRouter>
+        </Provider>
+      </UserProvider>
     </div>
   );
 }

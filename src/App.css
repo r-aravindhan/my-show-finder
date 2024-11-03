@@ -2,45 +2,11 @@
   text-align: center;
   font-family: "Lucida Handwriting", cursive;
   font-size: calc(15px + 2vmin);
-}
-
-.App-logo {
-  height: 10vmin;
-  pointer-events: none;
-  margin-right: 10px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 5s linear;
-  }
-}
-
-.App-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.App-header > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding-top: 60px;
 }
 
 html,
 body {
-  height: 100%;
   margin: 0;
 }
 
