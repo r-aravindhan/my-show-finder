@@ -15,12 +15,14 @@ function SeatSelection({ totalRows = 5, seatsPerRow = 28, onSeatSelect }) {
   };
 
   const handleSeatClick = (seatNumber) => {
+    let updatedSeats;
     if (selectedSeats.includes(seatNumber)) {
-      setSelectedSeats(selectedSeats.filter((seat) => seat !== seatNumber));
+      updatedSeats = selectedSeats.filter((seat) => seat !== seatNumber);
     } else {
-      setSelectedSeats([...selectedSeats, seatNumber]);
+      updatedSeats = [...selectedSeats, seatNumber];
     }
-    onSeatSelect(selectedSeats);
+    setSelectedSeats(updatedSeats);
+    onSeatSelect(updatedSeats); // Use the updated array
   };
 
   return (
@@ -30,7 +32,9 @@ function SeatSelection({ totalRows = 5, seatsPerRow = 28, onSeatSelect }) {
         {generateSeats().map((seatNumber) => (
           <div
             key={seatNumber}
-            className={`seat ${selectedSeats.includes(seatNumber) ? "selected" : ""}`}
+            className={`seat ${
+              selectedSeats.includes(seatNumber) ? "selected" : ""
+            }`}
             onClick={() => handleSeatClick(seatNumber)}
           >
             {seatNumber}

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/MovieCard.css";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, bookingDetails }) {
   return (
     <div className="movie-card">
       <img
@@ -12,14 +12,30 @@ function MovieCard({ movie }) {
       />
       <div className="movie-details">
         <h3 className="movie-title">{movie.title}</h3>
-        <p className="movie-genre">Genre: {movie.genre}</p>
-        <p className="movie-rating">Rating: {movie.rating}</p>
-        <Link
-          to={`/my-show-finder/movies/${movie.id}`}
-          className="view-details-button"
-        >
-          View Details
-        </Link>
+        {bookingDetails ? (
+          <>
+            <p>Date: {bookingDetails.date}</p>
+            <p>Showtime: {bookingDetails.showtime}</p>
+            <p>Seats: {bookingDetails.seats?.join(", ")}</p>
+            <button
+              className="view-cancel-button"
+              onClick={bookingDetails.onCancel}
+            >
+              Cancel Booking
+            </button>
+          </>
+        ) : (
+          <>
+            <p className="movie-genre">Genre: {movie.genre}</p>
+            <p className="movie-rating">Rating: {movie.rating}</p>
+            <Link
+              to={`/my-show-finder/movies/${movie.id}`}
+              className="view-cancel-button"
+            >
+              View Details
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

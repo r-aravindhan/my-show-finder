@@ -1,0 +1,17 @@
+.bookings-page {
+  padding: 20px;
+  color: snow;
+  font-family: Garamond, serif;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.booking-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0 10px;
+}

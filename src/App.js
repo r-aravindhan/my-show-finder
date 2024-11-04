@@ -7,6 +7,7 @@ import { UserProvider } from "./context/UserContext";
 import Layout from "./components/Layout";
 import MovieDetailsPage from "./pages/MovieDetailsPage";
 import MovieListingPage from "./pages/MovieListingPage";
+import BookingsPage from "./pages/BookingsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/my-show-finder/*" element={<Layout />}>
                 <Route path="movies" element={<MovieListingPage />} />
                 <Route path="movies/:movieId" element={<MovieDetailsPage />} />
+                <Route path="bookings" element={<BookingsPage />} />
               </Route>
             </Routes>
           </BrowserRouter>

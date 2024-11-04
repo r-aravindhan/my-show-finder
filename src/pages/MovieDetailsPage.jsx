@@ -12,8 +12,16 @@ function MovieDetailsPage() {
 
   const movie = moviesData.movies.find((m) => m.id === parseInt(movieId));
 
-  const [date, setDate] = useState("");
-  const [showtime, setShowtime] = useState("");
+  const getTodayDate = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0
+    const dd = String(today.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
+  const [date, setDate] = useState(getTodayDate());
+  const [showtime, setShowtime] = useState(movie.showtimes[0] || "");
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   const handleSeatSelect = (seats) => {
