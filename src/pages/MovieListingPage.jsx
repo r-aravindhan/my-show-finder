@@ -1,21 +1,39 @@
-import { useEffect, useState } from "react";
-import moviesData from "../mocks/movies.json";
+import { useState } from "react";
 import "../styles/MovieListingPage.css";
 import MovieCard from "../components/MovieCard";
+import { useSelector } from "react-redux";
 
 function MovieListingPage() {
-  const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    setMovies(moviesData.movies);
-  }, []);
+  const movies = useSelector((state) => state.movies);
+
+  const filteredMovies = movies.filter(movie => {
+    const matchesTitle = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesGenre = movie.genre.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesTitle || matchesGenre;
+  });
 
   return (
-    <div className="movie-list">
-      {movies.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </div>
+    <>
+      <input
+        type="text"
+        placeholder="Search for a movie by title or genre..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="search-input"
+      />
+
+      <div className="movie-list">
+        {filteredMovies.length > 0 ? (
+          filteredMovies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))
+        ) : (
+          <p className="not-found">No matching movies found!</p>
+        )}
+      </div>
+    </>
   );
 }
 
