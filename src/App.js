@@ -5,6 +5,8 @@ import LoginPage from "./pages/LoginPage";
 import store from "./redux/store";
 import { UserProvider } from "./context/UserContext";
 import Layout from "./components/Layout";
+import MovieDetailsPage from "./pages/MovieDetailsPage";
+import MovieListingPage from "./pages/MovieListingPage";
 
 function App() {
   return (
@@ -14,7 +16,10 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<LoginPage />} />
-              <Route path="/my-show-finder" element={<Layout />} />
+              <Route path="/my-show-finder/*" element={<Layout />}>
+                <Route path="movies" element={<MovieListingPage />} />
+                <Route path="movies/:movieId" element={<MovieDetailsPage />} />
+              </Route>
             </Routes>
           </BrowserRouter>
         </Provider>

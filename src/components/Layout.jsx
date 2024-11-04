@@ -1,11 +1,13 @@
-import MovieListingPage from "../pages/MovieListingPage";
+import { Outlet } from "react-router-dom";
 import Navbar from "./NavBar";
 
 function Layout() {
   return (
     <div>
       <Navbar />
-      <MovieListingPage />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }

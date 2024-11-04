@@ -14,7 +14,10 @@ function MovieCard({ movie }) {
         <h3 className="movie-title">{movie.title}</h3>
         <p className="movie-genre">Genre: {movie.genre}</p>
         <p className="movie-rating">Rating: {movie.rating}</p>
-        <Link to={`/movies/${movie.id}`} className="view-details-button">
+        <Link
+          to={`/my-show-finder/movies/${movie.id}`}
+          className="view-details-button"
+        >
           View Details
         </Link>
       </div>

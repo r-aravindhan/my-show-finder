@@ -24,7 +24,7 @@ function LoginPage() {
 
       if (user) {
         setUsername(user.name);
-        navigate("/my-show-finder");
+        navigate("/my-show-finder/movies");
         setError("");
       } else {
         setError("Invalid credentials!");
