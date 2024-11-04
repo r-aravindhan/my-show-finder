@@ -1,10 +1,12 @@
 import moviesData from "../mocks/movies.json";
-import { ADD_BOOKING, CANCEL_BOOKING } from "./actions";
+import { SET_BOOKING, ADD_BOOKING, CANCEL_BOOKING } from "./actions";
 
 const initialState = { movies: moviesData.movies };
 
 const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
+    case SET_BOOKING:
+      return action.payload;
     case ADD_BOOKING:
       return {
         ...state,

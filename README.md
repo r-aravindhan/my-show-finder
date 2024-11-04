@@ -17,6 +17,7 @@
 3. Run `npm run format` to format the code using Prettier
 4. Run `npm run start` to start the development server
 5. Run `npm run test` to run the unit test cases
+6. Run `npm run json-server` to run the server to call the mock api
 
 ## Usage
 

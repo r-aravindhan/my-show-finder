@@ -1,16 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styles/MovieListingPage.css";
 import MovieCard from "../components/MovieCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function MovieListingPage() {
   const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchMovies = () => {
+      fetch("http://localhost:3001/movies")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .catch((err) => {
+          setError(err.message);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    };
+
+    fetchMovies();
+  }, [dispatch]);
 
   const movies = useSelector((state) => state.movies);
 
-  const filteredMovies = movies.filter(movie => {
-    const matchesTitle = movie.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesGenre = movie.genre.toLowerCase().includes(searchTerm.toLowerCase());
+  if (loading) return <p className="loading-message">Loading...</p>;
+  if (error) return <p className="error-message">{error}</p>;
+
+  const filteredMovies = movies.filter((movie) => {
+    const matchesTitle = movie.title
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesGenre = movie.genre
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
     return matchesTitle || matchesGenre;
   });
 

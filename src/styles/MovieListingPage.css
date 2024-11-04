@@ -5,11 +5,25 @@
   padding: 0 10px;
 }
 
+.error-message {
+  justify-content: space-around;
+  text-align: center;
+  color: #c12025;
+  font-family: "Lucida Console", monospace;
+}
+
+.loading-message {
+  justify-content: space-around;
+  text-align: center;
+  color: snow;
+  font-family: Garamond, serif;
+}
+
 .search-input {
   padding: 10px;
   margin-bottom: 20px;
-  width: 100%; 
-  max-width: 400px; 
+  width: 100%;
+  max-width: 400px;
   border: 1px solid snow;
   border-radius: 5px;
   font-size: 16px;

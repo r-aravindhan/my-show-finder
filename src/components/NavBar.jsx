@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 import "../styles/Navbar.css";
 import { UserContext } from "../context/UserContext";
+import logo from "../logo.svg";
 
 function Navbar() {
   const { username } = useContext(UserContext);
@@ -28,6 +29,8 @@ function Navbar() {
           </div>
         )}
       </div>
+
+      <div>My Show Finder</div>
 
       <div className="profile-section">
         <span>Welcome {username}</span>
