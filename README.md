@@ -5,7 +5,8 @@
 - Login Page for User Authentication
 - Movie Listing Page
 - Movie Details Page with Booking feature
-- Booking History Page
+- Movie search feature
+- Bookings Page with Cancel feature
 - Redux for State Management
 - React Router for Navigation
 
@@ -20,7 +21,7 @@
 ## Usage
 
 - Login with `aravindhan_r@epam.com` and `030595`
-- Browse movies, view details, and book tickets
+- Browse movies, view details, book tickets, and cancel tickets
 - Manage bookings in the booking history
 
 ## Technologies

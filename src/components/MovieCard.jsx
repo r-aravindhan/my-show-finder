@@ -26,8 +26,8 @@ function MovieCard({ movie, bookingDetails }) {
           </>
         ) : (
           <>
-            <p className="movie-genre">Genre: {movie.genre}</p>
-            <p className="movie-rating">Rating: {movie.rating}</p>
+            <p>Genre: {movie.genre}</p>
+            <p>Rating: {movie.rating}</p>
             <Link
               to={`/my-show-finder/movies/${movie.id}`}
               className="view-cancel-button"

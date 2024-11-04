@@ -20,7 +20,7 @@ function BookingsPage() {
       <h2>Your Bookings</h2>
       <div className="booking-list">
         {moviesWithBookings.length === 0 ? (
-          <p>No bookings found.</p>
+          <p>No bookings found!</p>
         ) : (
           moviesWithBookings.map((movie) =>
             movie.bookings.map((booking) => (

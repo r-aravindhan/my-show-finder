@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "../styles/SeatSelection.css";
 
-function SeatSelection({ totalRows = 5, seatsPerRow = 28, onSeatSelect }) {
+function SeatSelection({
+  totalRows = 5,
+  seatsPerRow = 28,
+  onSeatSelect,
+  occupiedSeats = [],
+}) {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   const generateSeats = () => {
@@ -15,6 +20,10 @@ function SeatSelection({ totalRows = 5, seatsPerRow = 28, onSeatSelect }) {
   };
 
   const handleSeatClick = (seatNumber) => {
+    if (occupiedSeats.includes(seatNumber)) {
+      return;
+    }
+
     let updatedSeats;
     if (selectedSeats.includes(seatNumber)) {
       updatedSeats = selectedSeats.filter((seat) => seat !== seatNumber);
@@ -22,7 +31,7 @@ function SeatSelection({ totalRows = 5, seatsPerRow = 28, onSeatSelect }) {
       updatedSeats = [...selectedSeats, seatNumber];
     }
     setSelectedSeats(updatedSeats);
-    onSeatSelect(updatedSeats); // Use the updated array
+    onSeatSelect(updatedSeats);
   };
 
   return (
@@ -34,7 +43,7 @@ function SeatSelection({ totalRows = 5, seatsPerRow = 28, onSeatSelect }) {
             key={seatNumber}
             className={`seat ${
               selectedSeats.includes(seatNumber) ? "selected" : ""
-            }`}
+            } ${occupiedSeats.includes(seatNumber) ? "occupied" : ""}`}
             onClick={() => handleSeatClick(seatNumber)}
           >
             {seatNumber}

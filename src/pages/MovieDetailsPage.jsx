@@ -1,28 +1,39 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import moviesData from "../mocks/movies.json";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/MovieDetailsPage.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBooking } from "../redux/actions";
 import SeatSelection from "../components/SeatSelection";
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
   const dispatch = useDispatch();
+  const movies = useSelector((state) => state.movies);
+  const navigate = useNavigate();
 
-  const movie = moviesData.movies.find((m) => m.id === parseInt(movieId));
+  const movie = movies.find((m) => m.id === parseInt(movieId));
 
   const getTodayDate = () => {
     const today = new Date();
     const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0
-    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
     return `${yyyy}-${mm}-${dd}`;
   };
 
   const [date, setDate] = useState(getTodayDate());
   const [showtime, setShowtime] = useState(movie.showtimes[0] || "");
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [occupiedSeats, setOccupiedSeats] = useState([]);
+
+  useEffect(() => {
+    const occupied = movie.bookings
+      .filter(
+        (booking) => booking.date === date && booking.showtime === showtime,
+      )
+      .flatMap((booking) => booking.selectedSeats);
+    setOccupiedSeats(occupied);
+  }, [date, showtime, movie.bookings]);
 
   const handleSeatSelect = (seats) => {
     setSelectedSeats(seats);
@@ -36,6 +47,7 @@ function MovieDetailsPage() {
     };
     dispatch(addBooking(movie.id, booking));
     alert("Booking confirmed!");
+    navigate("/my-show-finder/bookings");
   };
 
   return (
@@ -66,7 +78,10 @@ function MovieDetailsPage() {
         <strong>Duration:</strong> {movie.duration}
       </p>
 
-      <SeatSelection onSeatSelect={handleSeatSelect} />
+      <SeatSelection
+        onSeatSelect={handleSeatSelect}
+        occupiedSeats={occupiedSeats}
+      />
 
       <div className="booking-section">
         <label htmlFor="date">Date:</label>
