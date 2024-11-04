@@ -1,24 +1,24 @@
-const initialState = {
-  movies: [],
-  bookings: [],
-};
+import moviesData from "../mocks/movies.json";
+import { ADD_BOOKING } from "./actions";
 
-const rootReducer = (state = initialState, action) => {
+const initialState = moviesData.movies;
+
+const moviesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_MOVIES":
-      return { ...state, movies: action.payload };
-    case "BOOK_TICKET":
-      return { ...state, bookings: [...state.bookings, action.payload] };
-    case "CANCEL_BOOKING":
-      return {
-        ...state,
-        bookings: state.bookings.filter(
-          (booking) => booking.id !== action.payload,
-        ),
-      };
+    case ADD_BOOKING:
+      return state.map((movie) => {
+        if (movie.id === action.payload.movieId) {
+          const newBooking = {
+            ...action.payload.booking,
+            id: movie.bookings.length + 1,
+          };
+          return { ...movie, bookings: [...movie.bookings, newBooking] };
+        }
+        return movie;
+      });
     default:
       return state;
   }
 };
 
-export default rootReducer;
+export default moviesReducer;

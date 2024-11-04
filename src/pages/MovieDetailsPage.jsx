@@ -2,20 +2,32 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import moviesData from "../mocks/movies.json";
 import "../styles/MovieDetailsPage.css";
+import { useDispatch } from "react-redux";
+import { addBooking } from "../redux/actions";
+import SeatSelection from "../components/SeatSelection";
 
 function MovieDetailsPage() {
   const { movieId } = useParams();
+  const dispatch = useDispatch();
+
   const movie = moviesData.movies.find((m) => m.id === parseInt(movieId));
 
-  const [tickets, setTickets] = useState(1);
   const [date, setDate] = useState("");
   const [showtime, setShowtime] = useState("");
+  const [selectedSeats, setSelectedSeats] = useState([]);
+
+  const handleSeatSelect = (seats) => {
+    setSelectedSeats(seats);
+  };
 
   const handleBooking = () => {
-    // Implement booking logic
-    alert(
-      `Booking ${tickets} tickets for ${movie.title} at ${showtime} on ${date}`,
-    );
+    const booking = {
+      date,
+      showtime,
+      selectedSeats,
+    };
+    dispatch(addBooking(movie.id, booking));
+    alert("Booking confirmed!");
   };
 
   return (
@@ -46,20 +58,9 @@ function MovieDetailsPage() {
         <strong>Duration:</strong> {movie.duration}
       </p>
 
-      <div className="booking-section">
-        <label htmlFor="tickets">Number of Tickets:</label>
-        <select
-          id="tickets"
-          value={tickets}
-          onChange={(e) => setTickets(e.target.value)}
-        >
-          {[...Array(10).keys()].map((i) => (
-            <option key={i + 1} value={i + 1}>
-              {i + 1}
-            </option>
-          ))}
-        </select>
+      <SeatSelection onSeatSelect={handleSeatSelect} />
 
+      <div className="booking-section">
         <label htmlFor="date">Date:</label>
         <input
           type="date"

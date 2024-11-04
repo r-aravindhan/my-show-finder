@@ -23,8 +23,8 @@ function Navbar() {
         <FaBars size={24} />
         {menuOpen && (
           <div className="menu-dropdown">
-            <Link to="/movies">Movies</Link>
-            <Link to="/bookings">Bookings</Link>
+            <Link to="/my-show-finder/movies">Movies</Link>
+            <Link to="/my-show-finder/bookings">Bookings</Link>
           </div>
         )}
       </div>

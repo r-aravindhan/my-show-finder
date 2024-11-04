@@ -1,0 +1,46 @@
+.seat-selection-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.screen {
+  background-color: snow;
+  color: black;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(28, 40px);
+  gap: 10px;
+  padding: 20px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid snow;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: snow;
+  font-size: 20px;
+  color: black;
+}
+
+.seat.selected {
+  background-color: #c12025;
+  color: black;
+}
+
+.seat.occupied {
+  background-color: darkgrey;
+  color: black;
+  cursor: not-allowed;
+}

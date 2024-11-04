@@ -12,7 +12,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 2,
@@ -26,7 +27,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 3,
@@ -40,7 +42,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 4,
@@ -54,7 +57,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 5,
@@ -68,7 +72,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 6,
@@ -82,7 +87,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 7,
@@ -96,7 +102,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 8,
@@ -110,7 +117,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 9,
@@ -124,7 +132,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 10,
@@ -138,7 +147,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 11,
@@ -152,7 +162,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 12,
@@ -166,7 +177,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 13,
@@ -180,7 +192,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 14,
@@ -194,7 +207,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     },
     {
       "id": 15,
@@ -208,7 +222,8 @@
       "music": "Yuvan shankar raja",
       "director": "Ameer sultan",
       "duration": "2h 28m",
-      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"]
+      "showtimes": ["10:00 AM", "02:00 PM", "06:35 PM", "10:20 PM"],
+      "bookings": []
     }
   ]
 }
