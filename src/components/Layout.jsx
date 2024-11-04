@@ -4,9 +4,9 @@ import Navbar from "./NavBar";
 function Layout() {
   return (
     <div>
-      <Navbar />
+      <Navbar data-testid="navbar" />
       <main>
-        <Outlet />
+        <Outlet data-testid="outlet" />
       </main>
     </div>
   );

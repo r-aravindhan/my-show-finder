@@ -31,8 +31,18 @@ function MovieListingPage() {
 
   const movies = useSelector((state) => state.movies);
 
-  if (loading) return <p className="loading-message">Loading...</p>;
-  if (error) return <p className="error-message">{error}</p>;
+  if (loading)
+    return (
+      <p data-testid="loading-message" className="loading-message">
+        Loading...
+      </p>
+    );
+  if (error)
+    return (
+      <p data-testid="not-found" className="error-message">
+        {error}
+      </p>
+    );
 
   const filteredMovies = movies.filter((movie) => {
     const matchesTitle = movie.title

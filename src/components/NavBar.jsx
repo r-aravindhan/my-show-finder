@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaBars, FaUserCircle } from "react-icons/fa";
 import "../styles/Navbar.css";
 import { UserContext } from "../context/UserContext";
-import logo from "../logo.svg";
 
 function Navbar() {
   const { username } = useContext(UserContext);
@@ -19,8 +18,13 @@ function Navbar() {
   };
 
   return (
-    <nav className="navbar">
-      <div className="menu-icon" onClick={toggleMenu}>
+    <nav data-testid="navbar" className="navbar">
+      <div
+        className="menu-icon"
+        role="button"
+        aria-label="menu"
+        onClick={toggleMenu}
+      >
         <FaBars size={24} />
         {menuOpen && (
           <div className="menu-dropdown">
@@ -37,6 +41,8 @@ function Navbar() {
         <FaUserCircle
           size={24}
           className="profile-icon"
+          role="button"
+          aria-label="profile"
           onClick={toggleProfile}
         />
         {profileOpen && (

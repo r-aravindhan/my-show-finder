@@ -32,7 +32,7 @@ function MovieDetailsPage() {
     if (movie) {
       const occupied = movie.bookings
         .filter(
-          (booking) => booking.date === date && booking.showtime === showtime
+          (booking) => booking.date === date && booking.showtime === showtime,
         )
         .flatMap((booking) => booking.selectedSeats);
       setOccupiedSeats(occupied);
@@ -45,7 +45,9 @@ function MovieDetailsPage() {
 
   const handleBooking = () => {
     if (selectedSeats.length !== parseInt(numberOfTickets)) {
-      setError("Number of selected seats does not match the number of tickets!");
+      setError(
+        "Number of selected seats does not match the number of tickets!",
+      );
       return;
     }
 
@@ -87,7 +89,10 @@ function MovieDetailsPage() {
         <strong>Duration:</strong> {movie.duration}
       </p>
 
-      <SeatSelection onSeatSelect={handleSeatSelect} occupiedSeats={occupiedSeats} />
+      <SeatSelection
+        onSeatSelect={handleSeatSelect}
+        occupiedSeats={occupiedSeats}
+      />
 
       <div className="booking-section">
         <label htmlFor="date">Date:</label>
