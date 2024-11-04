@@ -14,8 +14,28 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  const handleLogin = async (event) => {
+  const handleLogin = (event) => {
     event.preventDefault();
+    setError("");
+
+    const form = event.target;
+    const emailInput = form.elements[0];
+    const passwordInput = form.elements[1];
+
+    if (!emailInput.validity.valid) {
+      if (emailInput.validity.valueMissing) {
+        setError("Email is required!");
+      } else if (emailInput.validity.typeMismatch) {
+        setError("Please enter a valid email address!");
+      }
+      return;
+    }
+
+    if (!passwordInput.validity.valid && passwordInput.validity.valueMissing) {
+      setError("Password is required!");
+      return;
+    }
+
     setLoading(true);
     setTimeout(() => {
       const user = users.find(
@@ -45,29 +65,34 @@ function LoginPage() {
       </header>
       <br />
       <div className="container">
-        <input
-          type="email"
-          placeholder="Email Id"
-          value={emailId}
-          onChange={(e) => setEmailId(e.target.value)}
-          className="input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="input"
-        />
-        <button onClick={handleLogin} className="button" disabled={loading}>
-          {loading ? (
-            <span>
-              Verifying <span className="loader"></span>
-            </span>
-          ) : (
-            "Continue"
-          )}
-        </button>
+        <form onSubmit={handleLogin} noValidate>
+          <input
+            type="email"
+            placeholder="Email Id"
+            value={emailId}
+            onChange={(e) => setEmailId(e.target.value)}
+            className="input"
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input"
+            minLength={6}
+            required
+          />
+          <button type="submit" className="button" disabled={loading}>
+            {loading ? (
+              <span>
+                Verifying <span className="loader"></span>
+              </span>
+            ) : (
+              "Continue"
+            )}
+          </button>
+        </form>
         {error && <p className="error">{error}</p>}
       </div>
     </>

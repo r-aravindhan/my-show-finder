@@ -23,23 +23,32 @@ function MovieDetailsPage() {
 
   const [date, setDate] = useState(getTodayDate());
   const [showtime, setShowtime] = useState(movie.showtimes[0] || "");
+  const [numberOfTickets, setNumberOfTickets] = useState(1);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [occupiedSeats, setOccupiedSeats] = useState([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const occupied = movie.bookings
-      .filter(
-        (booking) => booking.date === date && booking.showtime === showtime,
-      )
-      .flatMap((booking) => booking.selectedSeats);
-    setOccupiedSeats(occupied);
-  }, [date, showtime, movie.bookings]);
+    if (movie) {
+      const occupied = movie.bookings
+        .filter(
+          (booking) => booking.date === date && booking.showtime === showtime
+        )
+        .flatMap((booking) => booking.selectedSeats);
+      setOccupiedSeats(occupied);
+    }
+  }, [date, showtime, movie]);
 
   const handleSeatSelect = (seats) => {
     setSelectedSeats(seats);
   };
 
   const handleBooking = () => {
+    if (selectedSeats.length !== parseInt(numberOfTickets)) {
+      setError("Number of selected seats does not match the number of tickets!");
+      return;
+    }
+
     const booking = {
       date,
       showtime,
@@ -78,10 +87,7 @@ function MovieDetailsPage() {
         <strong>Duration:</strong> {movie.duration}
       </p>
 
-      <SeatSelection
-        onSeatSelect={handleSeatSelect}
-        occupiedSeats={occupiedSeats}
-      />
+      <SeatSelection onSeatSelect={handleSeatSelect} occupiedSeats={occupiedSeats} />
 
       <div className="booking-section">
         <label htmlFor="date">Date:</label>
@@ -105,7 +111,18 @@ function MovieDetailsPage() {
           ))}
         </select>
 
+        <label htmlFor="numberOfTickets">Number of Tickets:</label>
+        <input
+          type="number"
+          id="numberOfTickets"
+          min="1"
+          value={numberOfTickets}
+          onChange={(e) => setNumberOfTickets(e.target.value)}
+        />
+
         <button onClick={handleBooking}>Book Now</button>
+
+        {error && <p className="error">{error}</p>}
       </div>
     </div>
   );
